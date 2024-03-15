@@ -1,10 +1,12 @@
 const connectToDatabase = require('./db');
 const dotenv = require('dotenv');
 const express = require('express');
+var cors = require('cors');
 
 dotenv.config({ path: '/home/saini008/Documents/p05_inotebook/config.env' });
 connectToDatabase();
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
